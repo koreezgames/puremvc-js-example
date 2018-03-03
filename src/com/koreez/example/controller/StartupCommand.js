@@ -6,8 +6,8 @@ import BoardProxy from '../model/BoardProxy'
 import PureMVC from 'pure-mvc'
 
 export default class StartupCommand extends PureMVC.SimpleCommand {
-  execute (notification) {
+  execute (notificationName, ...args) {
     this.facade.registerProxy(new BoardProxy())
-    this.facade.registerMediator(new GameMediator(notification.getBody().world))
+    this.facade.registerMediator(new GameMediator())
   }
 }

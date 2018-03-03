@@ -27,11 +27,9 @@ export default class BoardViewMediator extends PureMVC.Mediator {
     ]
   }
 
-  handleNotification (notification) {
-    const name = notification.getName()
-    const body = notification.getBody()
-
-    switch (name) {
+  handleNotification (notificationName, ...args) {
+    const body = args[0]
+    switch (notificationName) {
       case BoardView.DATA_READY:
         this.boardView.init(body)
         this.boardView.show()
@@ -44,8 +42,14 @@ export default class BoardViewMediator extends PureMVC.Mediator {
         this.boardView.cancelHighlightedCells()
         break
       case BoardView.POSSIBLE_MOVES_READY:
-        this.boardView.highlightCells(body.duplicateMoves, BoardView.CELL_HIGHLIGHT_DUPLICATE)
-        this.boardView.highlightCells(body.jumpMoves, BoardView.CELL_HIGHLIGHT_JUMP)
+        this.boardView.highlightCells(
+          body.duplicateMoves,
+          BoardView.CELL_HIGHLIGHT_DUPLICATE
+        )
+        this.boardView.highlightCells(
+          body.jumpMoves,
+          BoardView.CELL_HIGHLIGHT_JUMP
+        )
         break
     }
   }

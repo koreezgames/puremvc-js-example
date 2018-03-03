@@ -31,8 +31,8 @@ export default class GameFacade extends PureMVC.Facade {
     this.sendNotification(GameFacade.STARTUP, game)
   }
 
-  sendNotification (notificationName, body, type) {
+  sendNotification (notificationName, ...args) {
     console.log('Sent ' + notificationName)
-    super.sendNotification(notificationName, body, type)
+    super.sendNotification(notificationName, ...args)
   }
 }

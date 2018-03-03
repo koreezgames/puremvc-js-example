@@ -7,6 +7,7 @@ import config from './config'
 import PureMVC from 'pure-mvc'
 import GameFacade from './GameFacade'
 import GameState from './state/GameState'
+import 'babel-polyfill'
 
 export default class Game extends Phaser.Game {
   // STATES

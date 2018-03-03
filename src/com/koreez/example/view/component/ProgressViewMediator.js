@@ -18,18 +18,14 @@ export default class ProgressViewMediator extends Mediator {
   }
 
   listNotificationInterests () {
-    return [
-      ProgressView.SHOW,
-      ProgressView.HIDE,
-      ProgressView.UPDATE
-    ]
+    return [ProgressView.SHOW, ProgressView.HIDE, ProgressView.UPDATE]
   }
 
-  handleNotification (notification) {
-    const name = notification.getName()
-    const body = notification.getBody()
+  handleNotification (notificationName, ...args) {
+    // const name = notification.getName()
+    // const body = notification.getBody()
 
-    switch (name) {
+    switch (notificationName) {
       case ProgressView.SHOW:
         this.progressView.show()
         break
@@ -37,7 +33,7 @@ export default class ProgressViewMediator extends Mediator {
         this.progressView.hide()
         break
       case ProgressView.UPDATE:
-        this.progressView.updatePercent(body.percent)
+        this.progressView.updatePercent(args[0])
         break
     }
   }

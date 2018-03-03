@@ -32,8 +32,15 @@ export default class GameState extends Phaser.State {
   }
 
   onFileComplete (progress, cacheKey, success, totalLoaded, totalFiles) {
-    console.log('File Complete: ' + progress + '% - ' + totalLoaded + ' out of ' + totalFiles)
-    this.facade.sendNotification(ProgressView.UPDATE, {percent: progress})
+    console.log(
+      'File Complete: ' +
+        progress +
+        '% - ' +
+        totalLoaded +
+        ' out of ' +
+        totalFiles
+    )
+    this.facade.sendNotification(ProgressView.UPDATE, progress)
   }
 
   onLoadComplete () {

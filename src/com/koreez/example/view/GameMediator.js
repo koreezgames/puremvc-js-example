@@ -12,7 +12,7 @@ export default class GameMediator extends PureMVC.Mediator {
   static NAME = 'ApplicationMediator'
 
   constructor (viewComponent) {
-    super(Game.NAME, viewComponent)
+    super(GameMediator.NAME, window.game.world)
   }
 
   onRegister () {
@@ -20,15 +20,11 @@ export default class GameMediator extends PureMVC.Mediator {
   }
 
   listNotificationInterests () {
-    return [
-      GameState.READY
-    ]
+    return [GameState.READY]
   }
 
-  handleNotification (notification) {
-    const name = notification.getName()
-    const body = notification.getBody()
-    switch (name) {
+  handleNotification (notificationName, ...args) {
+    switch (notificationName) {
       case GameState.READY:
         this.facade.registerMediator(new BoardViewMediator(this.viewComponent))
         this.facade.sendNotification(BoardView.DATA_GET)

@@ -3,15 +3,13 @@
  */
 import BoardView from '../view/component/BoardView'
 import BoardProxy from '../model/BoardProxy'
-import PureMVC from 'pure-mvc'
+import PureMVC from '@koreez/pure-mvc'
 
 export default class BoardCommand extends PureMVC.SimpleCommand {
-  execute (notification) {
-    const name = notification.getName()
-    const body = notification.getBody()
-    switch (name) {
+  execute (notificationName, ...args) {
+    switch (notificationName) {
       case BoardView.CELL_CLICK:
-        this.proxy.selectCell(body)
+        this.proxy.selectCell(args[0])
         break
       case BoardView.PLAYER_SELECT:
         this.proxy.detectPossibleMoves()
