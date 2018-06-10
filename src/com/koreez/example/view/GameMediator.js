@@ -6,9 +6,9 @@ import Game from '../Game'
 import GameState from '../state/GameState'
 import BoardViewMediator from './component/BoardViewMediator'
 import BoardView from './component/BoardView'
-import PureMVC from 'pure-mvc'
+import {Mediator} from 'pure-mvc'
 
-export default class GameMediator extends PureMVC.Mediator {
+export default class GameMediator extends Mediator {
   static NAME = 'ApplicationMediator'
 
   constructor (viewComponent) {

@@ -3,9 +3,9 @@
  */
 import BoardProxy from '../model/BoardProxy'
 import BoardView from '../view/component/BoardView'
-import PureMVC from 'pure-mvc'
+import {SimpleCommand} from 'pure-mvc'
 
-export default class DataCommand extends PureMVC.SimpleCommand {
+export default class DataCommand extends SimpleCommand {
   execute (notificationName, ...args) {
     switch (notificationName) {
       case BoardView.DATA_GET:

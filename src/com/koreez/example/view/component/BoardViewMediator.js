@@ -3,9 +3,9 @@
  */
 import BoardProxy from '../../model/BoardProxy'
 import BoardView from './BoardView'
-import PureMVC from 'pure-mvc'
+import {Mediator} from 'pure-mvc'
 
-export default class BoardViewMediator extends PureMVC.Mediator {
+export default class BoardViewMediator extends Mediator {
   static NAME = 'ImagesViewMediator'
 
   constructor (viewComponent) {

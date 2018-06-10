@@ -5,7 +5,7 @@
 import Phaser from 'phaser'
 import GameFacade from '../GameFacade'
 import ProgressView from '../view/component/ProgressView'
-import PureMVC from 'pure-mvc'
+import {Facade} from 'pure-mvc'
 
 export default class GameState extends Phaser.State {
   static NAME = 'GameState'
@@ -15,7 +15,7 @@ export default class GameState extends Phaser.State {
     this.game.renderer.renderSession.roundPixels = true
     this.scale.pageAlignHorizontally = true
     this.scale.pageAlignVertically = true
-    this.facade = PureMVC.Facade.getInstance(GameFacade.KEY)
+    this.facade = Facade.getInstance(GameFacade.KEY)
     this.facade.startup(this)
   }
 

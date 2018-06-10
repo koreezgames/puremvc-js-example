@@ -5,18 +5,19 @@ import StartupCommand from './controller/StartupCommand'
 import BoardView from './view/component/BoardView'
 import DataCommand from './controller/DataCommand'
 import BoardCommand from './controller/BoardCommand'
-import PureMVC from 'pure-mvc'
+import {Facade} from 'pure-mvc'
 
-export default class GameFacade extends PureMVC.Facade {
+export default class GameFacade extends Facade {
   static KEY = 'Example'
   static NAME = 'ExampleFacade'
   static STARTUP = GameFacade.NAME + 'StartUp'
 
   static getInstance (key) {
-    if (!PureMVC.Facade.instanceMap.has(key)) {
-      PureMVC.Facade.instanceMap.set(key, new GameFacade(key))
+    console.log(Facade.instanceMap);
+    if (!Facade.instanceMap[key]) {
+      Facade.instanceMap[key] =  new GameFacade(key);
     }
-    return PureMVC.Facade.instanceMap.get(key)
+    return Facade.instanceMap[key]
   }
 
   initializeController () {

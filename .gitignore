@@ -6,3 +6,4 @@ build/
 yarn.lock
 .idea
 /build/
+stats.json
