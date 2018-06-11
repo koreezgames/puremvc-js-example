@@ -5,7 +5,6 @@
   "author": "Sargis Sargsyan <sargis@koreez.com>",
   "main": "Game.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "stats": "webpack --config config/webpack.config.js --env production --profile --json > stats.json",
     "start": "webpack-dev-server --config config/webpack.config.js",
     "serve": "serve -p 3000 -s dist --ssl",
@@ -44,7 +43,7 @@
     "webpack-shell-plugin": "^0.5.0"
   },
   "dependencies": {
-    "@koreez/pure-mvc": "^2.0.0",
+    "@koreez/pure-mvc": "^2.1.2",
     "babel-polyfill": "^6.26.0",
     "phaser-ce": "^2.10.1"
   }

@@ -3,9 +3,9 @@
  */
 import BoardView from '../view/component/BoardView'
 import BoardProxy from '../model/BoardProxy'
-import PureMVC from '@koreez/pure-mvc'
+import {SimpleCommand} from 'pure-mvc'
 
-export default class BoardCommand extends PureMVC.SimpleCommand {
+export default class BoardCommand extends SimpleCommand {
   execute (notificationName, ...args) {
     switch (notificationName) {
       case BoardView.CELL_CLICK:
