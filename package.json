@@ -6,7 +6,7 @@
   "main": "Game.js",
   "scripts": {
     "stats": "webpack --config config/webpack.config.js --env production --profile --json > stats.json",
-    "start": "webpack-dev-server --config config/webpack.config.js",
+    "start": "webpack-dev-server --config config/webpack.config.js --host 0.0.0.0 --port 2121",
     "serve": "serve -p 3000 -s dist --ssl",
     "lint": "eslint --ext js,jsx src"
   },
